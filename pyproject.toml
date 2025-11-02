@@ -1,0 +1,42 @@
+[project]
+name = "musictool"
+version = "0.1.0"
+description = "A music tool API built with FastAPI"
+authors = [{ name = "RhenCloud", email = "i@rhen.cloud" }]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "flask>=3.1.2",
+    "uvicorn[standard]>=0.38.0",
+    "pydantic>=2.12.3",
+    "requests>=2.32.5",
+    "boto3>=1.40.64",
+    "dotenv>=0.9.9",
+    "pillow>=11.3.0",
+]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.1.6"]
+
+# 添加运行脚本配置
+# [project.scripts]
+# start = "flask run api:app"
+# dev = "ruff run --watch api/app.py"
+
+# [build-system]
+# requires = ["setuptools>=45", "wheel"]
+# build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 88
+select = [
+    "E", # pycodestyle errors
+    "W", # pycodestyle warnings
+    "F", # pyflakes
+    "I", # isort
+    "C", # flake8-comprehensions
+    "B", # flake8-bugbear
+]
+extend-ignore = [
+    "E501", # line too long, handled by black
+]
